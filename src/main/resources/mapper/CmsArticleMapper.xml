@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hyc.telehealth.fileserver.mapper.CmsArticleMapper">
+  <resultMap id="BaseResultMap" type="hyc.telehealth.fileserver.model.CmsArticle">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="ID" jdbcType="VARCHAR" property="id" />
+    <result column="CATEGORY_ID" jdbcType="VARCHAR" property="categoryId" />
+    <result column="TITLE" jdbcType="VARCHAR" property="title" />
+    <result column="LINK" jdbcType="VARCHAR" property="link" />
+    <result column="COLOR" jdbcType="VARCHAR" property="color" />
+    <result column="IMAGE" jdbcType="VARCHAR" property="image" />
+    <result column="KEYWORDS" jdbcType="VARCHAR" property="keywords" />
+    <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
+    <result column="WEIGHT" jdbcType="DECIMAL" property="weight" />
+    <result column="WEIGHT_DATE" jdbcType="TIMESTAMP" property="weightDate" />
+    <result column="HITS" jdbcType="DECIMAL" property="hits" />
+    <result column="POSID" jdbcType="VARCHAR" property="posid" />
+    <result column="CUSTOM_CONTENT_VIEW" jdbcType="VARCHAR" property="customContentView" />
+    <result column="CREATE_BY" jdbcType="VARCHAR" property="createBy" />
+    <result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="UPDATE_BY" jdbcType="VARCHAR" property="updateBy" />
+    <result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+    <result column="REMARKS" jdbcType="VARCHAR" property="remarks" />
+    <result column="DEL_FLAG" jdbcType="CHAR" property="delFlag" />
+    <result column="SIDE_FLAG" jdbcType="CHAR" property="sideFlag" />
+    <result column="SIDE_IMAGE" jdbcType="VARCHAR" property="sideImage" />
+    <result column="VIEW_CONFIG" jdbcType="CLOB" property="viewConfig" />
+  </resultMap>
+</mapper>
