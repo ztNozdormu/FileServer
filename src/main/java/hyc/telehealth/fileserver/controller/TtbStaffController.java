@@ -7,7 +7,10 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -52,17 +55,34 @@ public class TtbStaffController {
 	 
 	 @RequestMapping("/getTtbStaffInfo")
 	 @ResponseBody
-	 public String getTtbStaffInfo(HttpServletRequest request) throws SQLException, IOException{
+	 public Map<String,Object> getTtbStaffInfo(HttpServletRequest request) throws SQLException, IOException{
+		 Map<String,Object> result = new HashMap<String,Object>();
 		 
 		 List<TTbStaff> ttbStaffs = tbStaffService.getTbStaffInfos();
-
+          int intHasPic = 0;
+          int intNoPic = 0;
+          int count = 0;
+          List<Map<String,Object>> mapDoctorIds = new ArrayList<Map<String,Object>>();
+          Map<String,Object> mapDoctorId = null;
 		  for(TTbStaff ttbstaff:ttbStaffs) {
 			  if(!StringUtils.isBlank(ttbstaff.getDepCode())) {
-//				  depCode+staffCode
-			  HttpUtils.isHaveImage(ttbstaff.getStaffCode(),ttbstaff.getStaffCode());
+				  count++;
+				  mapDoctorId = new HashMap<String,Object>();
+				  mapDoctorId.put("doctorId"+count, ttbstaff.getDepCode());
+				  mapDoctorIds.add(mapDoctorId);
+                    //文件命名staffCode
+				      if( HttpUtils.isHaveImage(ttbstaff.getStaffCode(),ttbstaff.getStaffCode())) {
+				    	  intHasPic++;
+				      }else {
+				    	  intNoPic++;
+				      }
 	              }
 			  }
-		 return "下载完毕";
+		  result.put("intHasPic", intHasPic);
+		  result.put("intNoPic", intNoPic);
+		  result.put("totalNum", ttbStaffs.size());
+//		  result.put("doctorIds", mapDoctorIds);
+		 return result;
 	  }
      
 	 @RequestMapping("/getIcon")  
