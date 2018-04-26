@@ -41,9 +41,9 @@
         </commentGenerator>  
   
         <jdbcConnection driverClass="oracle.jdbc.driver.OracleDriver"  
-                        connectionURL="jdbc:oracle:thin:@127.0.0.1:1521:orcl"  
-                        userId="rtm"  
-                        password="rtm">
+                        connectionURL="jdbc:oracle:thin:@11.11.4.11:1521/PDB_ORCL_BI"  
+                        userId="XJPT_RMYY_USER"  
+                        password="XJPT_RMYY_USER">
  <!--             针对mysql数据库   -->
 <!--             <property name="useInformationSchema" value="true"/>   -->
         </jdbcConnection>  
@@ -92,8 +92,8 @@
             <!-- 指定列的java数据类型 -->  
            <!-- <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->  
        <!-- </table>-->  
-<!--         <table schema="fileserver" tableName="cms_ad"  domainObjectName="CmsAd" />   -->
-        <table schema="rtm" tableName="CMS_ARTICLE"  domainObjectName="CmsArticle" />  
+<!--         <table schema="fileserver" tableName="cms_ad"  domainObjectName="CmsAd" />  XJPT_RMYY_T -->
+        <table schema="XJPT_RMYY_USER" tableName="T_TB_STAFF"  domainObjectName="TTbStaff" />  
 <!--         <table schema="jeecg" tableName="cgform_button"  domainObjectName="ProjFilmPresaleReprot" />   -->
   
     </context>  
